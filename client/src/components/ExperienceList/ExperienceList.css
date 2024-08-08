@@ -1,0 +1,107 @@
+
+.experience-container {
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Header styles */
+.experience-header {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    animation: slideIn 1s ease-in-out;
+}
+
+.experience-header .icon {
+    margin-right: 10px;
+    color: #4CAF50;
+}
+
+/* Individual experience item styles */
+.experience-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Title and edit icon styles */
+.experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.experience-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.edit-icon {
+    color: #007BFF;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.edit-icon:hover {
+    color: #0056b3;
+}
+
+/* Detail styles */
+.experience-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+.experience-company, .experience-location, .experience-duration {
+    margin-right: 10px;
+}
+
+/* Description styles */
+.experience-description {
+    margin-top: 10px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

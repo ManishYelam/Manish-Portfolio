@@ -1,0 +1,17 @@
+.profile-page {
+    padding: 20px;
+}
+  
+.forms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+  
+@media (min-width: 768px) {
+    .forms-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+}
+  
