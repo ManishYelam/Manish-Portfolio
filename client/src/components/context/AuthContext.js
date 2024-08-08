@@ -1,6 +1,4 @@
-// AuthContext.js
-
-import React, { createContext, useState, useEffect, useContext, useRef } from 'react';
+import React, { createContext, useState, useEffect, useContext, useRef, useCallback } from 'react';
 
 const AuthContext = createContext();
 
@@ -11,42 +9,47 @@ export const AuthProvider = ({ children }) => {
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
   const timeoutRef = useRef(null);
 
-  
   const timeoutDuration = 30 * 1000;
 
+  const logoutAfterTimeout = useCallback(() => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('isAuthenticated');
+    const logoutTimestamp = new Date();
+    setLogoutTime(logoutTimestamp);
+    localStorage.setItem('logoutTime', logoutTimestamp.toString());
+  }, []);
+
+  const resetTimeout = useCallback(() => {
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(logoutAfterTimeout, timeoutDuration);
+  }, [logoutAfterTimeout, timeoutDuration]);
+
   useEffect(() => {
-    const logoutAfterTimeout = () => {
-      setIsAuthenticated(false);
-      localStorage.removeItem('isAuthenticated');
-      const logoutTimestamp = new Date();
-      setLogoutTime(logoutTimestamp);
-      localStorage.setItem('logoutTime', logoutTimestamp.toString());
-    };
-
-    const resetTimeout = () => {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = setTimeout(logoutAfterTimeout, timeoutDuration);
-    };
-
     if (isAuthenticated) {
-      timeoutRef.current = setTimeout(logoutAfterTimeout, timeoutDuration);
+      resetTimeout();
     } else {
       clearTimeout(timeoutRef.current);
     }
 
-    window.addEventListener('mousemove', resetTimeout);
-    window.addEventListener('mousedown', resetTimeout);
-    window.addEventListener('keypress', resetTimeout);
-    window.addEventListener('touchstart', resetTimeout);
+    const handleUserActivity = () => {
+      if (isAuthenticated) {
+        resetTimeout();
+      }
+    };
+
+    window.addEventListener('mousemove', handleUserActivity);
+    window.addEventListener('mousedown', handleUserActivity);
+    window.addEventListener('keypress', handleUserActivity);
+    window.addEventListener('touchstart', handleUserActivity);
 
     return () => {
-      window.removeEventListener('mousemove', resetTimeout);
-      window.removeEventListener('mousedown', resetTimeout);
-      window.removeEventListener('keypress', resetTimeout);
-      window.removeEventListener('touchstart', resetTimeout);
+      window.removeEventListener('mousemove', handleUserActivity);
+      window.removeEventListener('mousedown', handleUserActivity);
+      window.removeEventListener('keypress', handleUserActivity);
+      window.removeEventListener('touchstart', handleUserActivity);
       clearTimeout(timeoutRef.current);
     };
-  }, [isAuthenticated]);
+  }, [isAuthenticated, resetTimeout]);
 
   const login = () => {
     setIsAuthenticated(true);
@@ -66,19 +69,14 @@ export const AuthProvider = ({ children }) => {
     clearTimeout(timeoutRef.current); // Clear the timeout countdown on logout
   };
 
-  const resetTimeout = () => {
-    clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(logout, timeoutDuration);
-  };
-
   // Check authentication state on initial load
   useEffect(() => {
     const storedIsAuthenticated = localStorage.getItem('isAuthenticated');
-    if (storedIsAuthenticated) {
+    if (storedIsAuthenticated === 'true') {
       setIsAuthenticated(true);
       resetTimeout(); // Start the timeout countdown if already authenticated
     }
-  }, []);
+  }, [resetTimeout]);
 
   // Live clock
   useEffect(() => {
