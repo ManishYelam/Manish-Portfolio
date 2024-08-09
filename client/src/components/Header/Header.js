@@ -5,11 +5,6 @@ import AdminLogo from '../AdminLogo/AdminLogo';
 import ThemeToggle from '../Theme/ThemeToggle';
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
   const [theme, setTheme] = useState('light');
 
   const toggleTheme = (mode) => {
@@ -17,16 +12,14 @@ const Header = () => {
     document.body.classList.toggle('dark-mode', mode === 'dark');
   };
 
-  
-
   return (
     <header className="header">
       <div className="container">
         <div className="logo">
-          <ThemeToggle toggleTheme={toggleTheme} />
+          <ThemeToggle toggleTheme={toggleTheme} currentTheme={theme} />
           <Link to="/">@ManishYelam$Portfolio!</Link> 
         </div>
-        <nav className={`nav ${isOpen ? 'open' : ''}`}>
+        <nav className={`nav`}>
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/projects">Projects</Link></li>
