@@ -1,0 +1,49 @@
+.auth-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  .auth-status h2 {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    color: #4a90e2;
+  }
+  
+  .auth-status h3 {
+    font-size: 0.7em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .auth-status p {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+  
+  .auth-status .status-logged-in {
+    color: #4caf50;
+  }
+  
+  .auth-status .status-logged-out {
+    color: #e74c3c;
+  }
+  
+  .auth-status .time-info {
+    background-color: #eaf0f4;
+    font-size: smaller;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  

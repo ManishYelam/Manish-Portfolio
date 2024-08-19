@@ -1,0 +1,27 @@
+
+:root {
+  font-family: mine;
+  --bg-color-light: #f8f9fa; /* Light mode background color */
+  --bg-color-dark: #343a40; /* Dark mode background color */
+  --bg-color-black: #333333; /* Black letters */
+}
+@font-face {
+  font-family: mine;
+  src: url(Oswald.ttf);
+}
+body {
+  background-color: var(--bg-color-light); /* Default background color */
+  color: #333; /* Default text color */
+  font-family: mine; /* Example font-family */
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for mode change */
+}
+
+body.dark-mode {
+  background-color: var(--bg-color-dark); /* Dark mode background color */
+  color: #fff; /* Text color in dark mode */
+}
+
+
+

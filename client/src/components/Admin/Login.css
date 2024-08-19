@@ -1,0 +1,79 @@
+/* Container for the login form */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Heading style */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.login-container span{
+  font-size: 0.8rem;
+}
+
+/* Form control styles */
+.login-container form div {
+  margin-bottom: 15px;
+}
+
+/* Label styles */
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Input styles */
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Button styles */
+.login-container button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #218838;
+}
+
+/* Message styles */
+.login-container p {
+  margin-top: 20px;
+  text-align: center;
+  color: #d9534f;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .login-container {
+    margin: 20px;
+    padding: 15px;
+  }
+}

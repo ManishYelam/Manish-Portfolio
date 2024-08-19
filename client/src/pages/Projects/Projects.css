@@ -1,0 +1,20 @@
+/* src/pages/Projects/Projects.css */
+.projects-page {
+  padding: 2rem 0;
+}
+
+.projects-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.projects-page h2 {
+  margin-bottom: 2rem;
+}
+
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

@@ -1,0 +1,53 @@
+.admin-logo-dropdown {
+    margin-left: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+.admin-logo {
+    cursor: pointer;
+}
+
+.admin-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    width: 250px;
+    top: 60px;
+    right: 0;
+    background-color: #4CAF50;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+    color: black;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+.icon {
+    padding-left: 10px;
+    padding-right: 10px;
+}
